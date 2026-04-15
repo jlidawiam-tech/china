@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce in China: Full Strategic Report</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --ivory: #fdfcfb;
+            --black: #0c0c0c;
+            --gray: #1a1a1a;
+            --text-muted: rgba(253, 252, 251, 0.7);
+            --red: #F44336;
+            --green: #4CAF50;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            background-color: var(--black);
+            margin: 0;
+            color: var(--ivory);
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* Full Screen Slide Sections */
+        section {
+            min-height: 100vh;
+            width: 100%;
+            position: relative;
+            padding: 80px 10%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            overflow: hidden;
+        }
+
+        /* Background Visuals */
+        .bg-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0;
+            opacity: 0.3;
+            object-fit: cover;
+            filter: grayscale(100%);
+        }
+
+        .content-layer {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: 'Bodoni Moda', serif;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        h1 { font-size: 5rem; line-height: 0.9; margin-bottom: 20px; }
+        h2 { font-size: 3.5rem; color: var(--gold); margin-bottom: 30px; }
+        h3 { font-size: 1.8rem; margin-bottom: 15px; border-bottom: 1px solid var(--gold); display: inline-block; padding-bottom: 5px; }
+
+        p { font-size: 1.1rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 20px; }
+
+        .label {
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Data & List Grids */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: var(--gray);
+            padding: 30px;
+            border-left: 3px solid var(--gold);
+        }
+
+        .stat-value {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 3.5rem;
+            color: var(--gold);
+            display: block;
+        }
+
+        .author-list {
+            margin-top: 40px;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            opacity: 0.6;
+        }
+
+        /* Navigation Dots */
+        .nav-dots {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+            margin: 15px 0;
+            opacity: 0.3;
+            cursor: pointer;
+            display: block;
+        }
+
+        .dot:hover { opacity: 1; }
+
+        ul { list-style: none; padding: 0; }
+        ul li { margin-bottom: 12px; position: relative; padding-left: 20px; }
+        ul li::before { content: "—"; position: absolute; left: 0; color: var(--gold); }
+
+        .transition-quote {
+            margin-top: 30px;
+            font-style: italic;
+            border-left: 2px solid var(--gold);
+            padding-left: 20px;
+            color: var(--text-muted);
+        }
+
+        .speaker-tag {
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        /* Charts & Graphs */
+        .chart-container {
+            background: var(--gray);
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        .bar-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .bar-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .bar-label {
+            min-width: 150px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .bar-track {
+            flex: 1;
+            height: 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--gold), #f1e5ac);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--black);
+            transition: width 1.5s ease;
+        }
+
+        .source-tag {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 20px;
+            font-style: italic;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            padding-top: 10px;
+        }
+
+        .timeline-chart {
+            position: relative;
+            padding-left: 30px;
+            border-left: 2px solid var(--gold);
+            margin: 30px 0;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 20px;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -36px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+
+        .timeline-year {
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .comparison-table th {
+            color: var(--gold);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .comparison-table td {
+            color: var(--text-muted);
+        }
+
+        .pie-chart {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: conic-gradient(
+                var(--gold) 0deg 234deg,
+                rgba(255,255,255,0.1) 234deg 360deg
+            );
+            margin: 20px auto;
+            position: relative;
+        }
+
+        .pie-chart::after {
+            content: "52%";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Bodoni Moda', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            background: var(--gold);
+        }
+
+        .legend-color.gray {
+            background: rgba(255,255,255,0.1);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2.5rem; }
+            .grid { grid-template-columns: 1fr; }
+            .bar-label { min-width: 100px; font-size: 0.8rem; }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+
+    <nav class="nav-dots">
+        <a href="#cover" class="dot"></a>
+        <a href="#panel" class="dot"></a>
+        <a href="#intro" class="dot"></a>
+        <a href="#history" class="dot"></a>
+        <a href="#players" class="dot"></a>
+        <a href="#logistics" class="dot"></a>
+        <a href="#consumer" class="dot"></a>
+        <a href="#impacts" class="dot"></a>
+        <a href="#why-china" class="dot"></a>
+        <a href="#future" class="dot"></a>
+        <a href="#conclusion" class="dot"></a>
+    </nav>
+
+    <!-- 1. COVER -->
+    <section id="cover">
+        <img src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?q=80&w=2000" class="bg-overlay" alt="China Tech">
+        <div class="content-layer">
+            <span class="label">Strategic Presentation 2024</span>
+            <h1>THE DIGITAL<br><span style="color: var(--gold);">DRAGON</span></h1>
+            <p style="max-width: 600px; font-size: 1.4rem;">A Comprehensive Analysis of the Evolution and Dominance of the Chinese E-commerce Ecosystem.</p>
+            <div class="author-list">
+                <span>DOUAE ATTOUCH</span> <span>YASMINE SENHAJI</span> <span>LILIA JALOUN</span> <span>NOURA SOUMAHORO</span> 
+                <span>JANNAT EL MELZOUM</span> <span>LINA AMAHZOUNE</span> <span>WIAM ARBOUCH</span> <span>WIAM JLIDA</span> <span>WIJDANE OUTARJA</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. EXPERT PANEL -->
+    <section id="panel">
+        <div class="content-layer">
+            <span class="label">The Research Team</span>
+            <h2>Expert Contributors</h2>
+            <div class="grid" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="card">
+                    <h3>Douae Attouch</h3>
+                    <p>Global Market Context & Introduction</p>
+                </div>
+                <div class="card">
+                    <h3>Yasmine Senhaji</h3>
+                    <p>Traditional Commerce: Markets & Limitations</p>
+                </div>
+                <div class="card">
+                    <h3>Lilia Jaloun</h3>
+                    <p>Digital Revolution: Super-Apps & New Retail</p>
+                </div>
+                <div class="card">
+                    <h3>Noura Soumahoro</h3>
+                    <p>Logistics: Cainiao & Live Shopping Integration</p>
+                </div>
+                <div class="card">
+                    <h3>Jannat El Melzoum</h3>
+                    <p>Social Commerce: Pinduoduo & Livestreaming</p>
+                </div>
+                <div class="card">
+                    <h3>Lina Amahzoune</h3>
+                    <p>Social Impacts: Data, Employment & Ethics</p>
+                </div>
+                <div class="card">
+                    <h3>Wiam Arbouch</h3>
+                    <p>Strategic Choice: Why China Matters</p>
+                </div>
+                <div class="card">
+                    <h3>Wiam Jlida</h3>
+                    <p>Future Vision: Neural Commerce 2075</p>
+                </div>
+                <div class="card">
+                    <h3>Wijdane Outarja</h3>
+                    <p>Final Synthesis & Conclusion</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. INTRODUCTION (DOUAE ATTOUCH) -->
+    <section id="intro">
+        <div class="content-layer">
+            <span class="label"><span class="speaker-tag">Douae Attouch</span> | Overview</span>
+            <h2>Introduction</h2>
+            <div class="grid">
+                <div>
+                    <p>Today, China is one of the world leaders in e-commerce. In just a few years, it has undergone a very rapid transformation thanks to new technologies.</p>
+                    <p>It has moved from traditional commerce based on physical markets to highly advanced digital commerce.</p>
+                    <p>In this presentation, we will explain how this transformation happened, what are the main innovations, and what are their impacts on society.</p>
+                    <p>Finally, we will also see how commerce could evolve in the future.</p>
+                </div>
+                <div class="card">
+                    <h3>Key Statistics 2024</h3>
+                    <span class="stat-value">$3.12T</span>
+                    <p>China Total E-Commerce Volume</p>
+                    <span class="stat-value">$1.14T</span>
+                    <p>United States (for comparison)</p>
+                    
+                    <div class="chart-container" style="margin-top: 20px; padding: 20px;">
+                        <p style="font-size: 0.9rem; margin-bottom: 15px; text-align: center;">China vs US E-Commerce Market Share</p>
+                        <div class="bar-chart">
+                            <div class="bar-item">
+                                <span class="bar-label">China</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width: 73%;">73%</div>
+                                </div>
+                            </div>
+                            <div class="bar-item">
+                                <span class="bar-label">USA</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width: 27%; background: rgba(255,255,255,0.3); color: var(--ivory);">27%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="source-tag">Sources: eMarketer Global Ecommerce Forecast 2024, Statista Digital Market Outlook</p>
+                </div>
+            </div>
+            <p class="transition-quote">
+                "To begin, Yasmine Senhaji will present commerce in China before the digital era."
+            </p>
+        </div>
+    </section>
+
+    <!-- 4. HISTORICAL EVOLUTION (YASMINE SENHAJI) - UPDATED CONTENT -->
+    <section id="history">
+        <img src="https://images.unsplash.com/photo-1529921879218-f996677a73e2?q=80&w=2000" class="bg-overlay">
+        <div class="content-layer">
+            <span class="label"><span class="speaker-tag">Yasmine Senhaji</span> | Traditional Commerce</span>
+            <h2>II. Traditional Commerce in China</h2>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>1. Traditional Commerce</h3>
+                    <ul>
+                        <li><strong>Local Markets & Small Shops:</strong> Neighborhood-based trading hubs where daily commerce occurred</li>
+                        <li><strong>Direct Seller-Client Relationship:</strong> Face-to-face interactions built on personal connections</li>
+                        <li><strong>Trust & Negotiation:</strong> High importance of bargaining skills and personal reputation (<em>Guanxi</em>)</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>2. Payment Methods</h3>
+                    <ul>
+                        <li><strong>Primary Use of Cash:</strong> Physical currency was the standard for all transactions</li>
+                        <li><strong>Lack of Digitalization:</strong> No digital infrastructure or online payment systems existed</li>
+                        <li><strong>Slow & Insecure:</strong> Transactions were time-consuming and carrying cash posed security risks</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>3. Limitations</h3>
+                    <ul>
+                        <li><strong>Limited Access:</strong> Consumers could only buy what was physically available nearby</li>
+                        <li><strong>Little Choice:</strong> Narrow variety of products compared to modern standards</li>
+                        <li><strong>Geographic Dependency:</strong> High reliance on physical location and travel to markets</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Comparison Chart: Traditional vs Digital -->
+            <div class="chart-container">
+                <h3 style="text-align: center; margin-bottom: 20px;">Traditional vs Digital Commerce Comparison</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>Traditional Commerce</th>
+                            <th>Digital Commerce</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Access</strong></td>
+                            <td>Geographically limited</td>
+                            <td>24/7 nationwide access</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Product Variety</strong></td>
+                            <td>Limited to local stock</td>
+                            <td>Unlimited virtual inventory</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Payment Speed</strong></td>
+                            <td>Slow (cash counting)</td>
+                            <td>Instant (QR code)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Price Transparency</strong></td>
+                            <td>Negotiation-based</td>
+                            <td>Fixed, comparable prices</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Trust Mechanism</strong></td>
+                            <td>Personal reputation</td>
+                            <td>Digital ratings/reviews</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="source-tag">Source: McKinsey & Company China Consumer Report 2023, China Ministry of Commerce</p>
+            </div>
+
+            <!-- Timeline of Evolution -->
+            <div class="chart-container" style="margin-top: 30px;">
+                <h3 style="text-align: center; margin-bottom: 20px;">Evolution Timeline: From Cash to Cashless</h3>
+                <div class="timeline-chart">
+                    <div class="timeline-item">
+                        <span class="timeline-year">Pre-2000</span>
+                        <p><strong>Cash Dominance:</strong> 100% cash transactions. Liangpiao (粮票) rationing tickets for rice and oil.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">2000-2010</span>
+                        <p><strong>Early Digital:</strong> Introduction of debit cards. Cash still dominant at 80% of transactions.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">2011-2015</span>
+                        <p><strong>Mobile Leap:</strong> Alipay (2004) and WeChat Pay (2013) launch. Cash drops to 50%.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">2016-2020</span>
+                        <p><strong>QR Revolution:</strong> Mobile payment exceeds cash. 86% smartphone payment penetration in cities.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">2020-Present</span>
+                        <p><strong>Cashless Society:</strong> Cash represents less than 10% of transactions in tier-1 cities.</p>
+                    </div>
+                </div>
+                <p class="source-tag">Source: People's Bank of China Payment System Development Report 2023</p>
+            </div>
+
+            <p class="transition-quote">
+                "It is precisely this transition from a complex physical system to a digital war machine that Lilia Jaloun will present."
+            </p>
+        </div>
+    </section>
+
+    <!-- 5. KEY MARKET PLAYERS (LILIA JALOUN) -->
+    <section id="players">
+        <div class="content-layer">
+            <span class="label"><span class="speaker-tag">Lilia Jaloun</span> | Competition</span>
+            <h2>The Giants & The Digital Leap</h2>
+            
+            <div class="grid" style="margin-bottom: 40px;">
+                <div class="card">
+                    <h3>The Mobile-First Leap</h3>
+                    <p>Unlike the West, China <strong>skipped the desktop computer era</strong>. The population moved directly from classic phones to smartphones, creating a mobile-first society where the smartphone is an extension of the self.</p>
+                </div>
+                <div class="card">
+                    <h3>QR Code Revolution</h3>
+                    <p>The <strong>QR code payment</strong> is the foundation of the revolution. Cash has practically disappeared from big cities. This "one-click" ease removed all psychological barriers to purchase.</p>
+                </div>
+                <div class="card">
+                    <h3>Super-App Ecosystem</h3>
+                    <p><strong>WeChat (Tencent)</strong> and <strong>Alipay (Alibaba)</strong> are the OS of daily life. One app for chat, taxi, bills, and shopping. You never leave the ecosystem.</p>
+                </div>
+            </div>
+
+            <div class="grid">
+                <div>
+                    <h3>Alibaba Group</h3>
+                    <p>The pioneer with Taobao (C2C) and Tmall (B2C). Focuses on building the "operating system" of commerce via cloud and logistics.</p>
+                </div>
+                <div>
+                    <h3>JD.com</h3>
+                    <p>The "Amazon of China." Controls its own massive logistics network, prioritizing quality, speed, and authentic luxury goods.</p>
+                </div>
+                <div>
+                    <h3>Pinduoduo (PDD)</h3>
+                    <p>The disruptor. Introduced "Team Buying" and gamification, successfully capturing lower-tier city demographics and rural markets.</p>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 40px;">
+                <h3>Hema (Freshippo) | New Retail</h3>
+                <p>Jack Ma's flagship concept that erases the line between physical and digital: scan products with your phone to see farm-to-table origin, visible logistics rails on the ceiling where order bags circulate, and 30-minute delivery within 3km. The store <em>is</em> the fulfillment center.</p>
+            </div>
+
+            <!-- Market Share Chart -->
+            <div class="chart-container">
+                <h3 style="text-align: center; margin-bottom: 20px;">China E-Commerce Market Share by Platform (2024)</h3>
+                <div class="bar-chart">
+                    <div class="bar-item">
+                        <span class="bar-label">Alibaba</span>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width: 47%;">47%</div>
+                        </div>
+                    </div>
+                    <div class="bar-item">
+                        <span class="bar-label">JD.com</span>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width: 20%;">20%</div>
+                        </div>
+                    </div>
+                    <div class="bar-item">
+                        <span class="bar-label">Pinduoduo</span>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width: 18%;">18%</div>
+                        </div>
+                    </div>
+                    <div class="bar-item">
+                        <span class="bar-label">Douyin</span>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width: 10%;">10%</div>
+                        </div>
+                    </div>
+                    <div class="bar-item">
+                        <span class="bar-label">Others</span>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width: 5%; background: rgba(255,255,255,0.3); color: var(--ivory);">5%</div>
+                        </div>
+                    </div>
+                </div>
+                <p class="source-tag">Source: eMarketer China Ecommerce Forecast 2024, Company Financial Reports</p>
+            </div>
+
+            <p class="transition-quote">
+                "Next, Noura Soumahoro will explain the logistics and delivery speed that make this revolution possible."
+            </p>
+        </div>
+    </section>
+
+    <!-- 6. LOGISTICS & INFRASTRUCTURE (NOURA SOUMAHORO) -->
+    <section id="logistics">
+        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2000" class="bg-overlay">
+        <div class="content-layer">
+            <span class="label"><span class="speaker-tag">Noura Soumahoro</span> | Operations</span>
+            <h2>Seamless Fulfillment</h2>
+            
+            <div class="grid">
+                <div class="card" style="background: rgba(26,26,26,0.9);">
+                    <h3>Cainiao Network</h3>
+                    <p>Not a classic transport company, but a <strong>data platform</strong> connecting all logistics actors to optimize routes. It orchestrates, others execute.</p>
+                    <p><strong>100+ billion parcels annually</strong> (China State Post Bureau 2024)</p>
+                </div>
+                <div class="card" style="background: rgba(26,26,26,0.9);">
+                    <h3>Smart Warehousing</h3>
+                    <p>AGV robots (Automated Guided Vehicles) sort <strong>24/7</strong> with near-zero error. Big Data predicts demand: products are routed to nearby warehouses <em>before</em> you order.</p>
+                </div>
+            </div>
+
+            <div class="grid" style="margin-top: 40px;">
+                <div class="card">
+                    <h3>Live Shopping Integration</h3>
+                    <p>When an influencer sells <strong>10,000 lipsticks in 2 minutes</strong>, warehouses are already packaging during the live stream. Extreme lean flow.</p>
+                </div>
+                <div class="card">
+                    <h3>JD.com Promise</h3>
+                    <p>Delivery before <strong>11am</strong> for any order placed before midnight. Vertical integration: own trucks, warehouses, and delivery fleet.</p>
+                </div>
+                <div class="card">
+                    <h3>Last Mile Innovations</h3>
+                    <p>Fengchao smart lockers in residences, drone delivery to rural areas, L4 autonomous vehicles on campuses, biodegradable packaging.</p>
+                </div>
+            </div>
+
+            <!-- Parcel Growth Chart -->
+            <div class="chart-container">
+                <h3 style="text-align: center; margin-bottom: 20px;">China Parcel Volume Growth (Billions)</h3>
+                <div class="bar-chart">
+                    <div class="bar-item">
+                        <span class="bar-label">2010</span>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width: 5%;">2.3B</div>
+                        </div>
+                    </div>
+                    <div class="bar-item">
+                        <span class="bar-label">2015</span>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width: 22%;">20.7B</div>
+                        </div>
+                    </div>
+                    <div class="bar-item">
+                        <span class="bar-label">2020</span>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width: 65%;">83.4B</div>
+                        </div>
+                    </div>
+                    <div class="bar-item">
+                        <span class="bar-label">2024</span>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width: 100%;">130B+</div>
+                        </div>
+                    </div>
+                </div>
+                <p class="source-tag">Source: China State Post Bureau Annual Report 2024, National Bureau of Statistics of China</p>
+            </div>
+
+            <div class="card" style="margin-top: 40px;">
+                <h3>National Standardization</h3>
+                <p>24-hour delivery between metropolises, 48-hour delivery to rural zones. A mesh network ensuring unprecedented speed and optimizing both delivery times and user experience.</p>
+            </div>
+
+            <p class="transition-quote">
+                "Next, Jannat El Melzoum will present social commerce and livestreaming, which are revolutionizing how Chinese consumers shop."
+            </p>
+        </div>
+    </section>
+
+    <!-- 7. CONSUMER BEHAVIOR (JANNAT EL MELZOUM) -->
+    <section id="consumer">
+        <div class="content-layer">
+            <span class="label"><span class="speaker-tag">Jannat El Melzoum</span> | The User Experience</span>
+            <h2>Social Commerce Revolution</h2>
+            
+            <div class="grid">
+                <div>
+                    <h3>What is Social Commerce?</h3>
+                    <p>A form of online commerce that uses <strong>social networks to sell directly</strong> to consumers. Unlike classic e-commerce, you can buy without leaving apps like Instagram or TikTok.</p>
+                    
+                    <h3>Livestreaming Commerce</h3>
+                    <p>A seller or influencer presents products in live video, explains advantages, answers questions. Viewers can buy instantly. This model works exceptionally well in China because consumers love interaction and trust influencers.</p>
+                </div>
+                <div class="card">
+                    <h3>Singles' Day Record</h3>
+                    <span class="stat-value">€100M+</span>
+                    <p>Some top streamers sell this amount in a <strong>single live session</strong> during the "11.11" festival on platforms like <strong>Douyin</strong> (Chinese TikTok).</p>
+                </div>
+            </div>
+
+            <div class="grid" style="margin-top: 40px;">
+                <div class="card" style="border-left-color: var(--green);">
+                    <h3 style="color: var(--green);">Advantages</h3>
+                    <ul>
+                        <li>Interactive experience</li>
+                        <li>Fast purchase process</li>
+                        <li>Builds consumer trust</li>
+                    </ul>
+                </div>
+                <div class="card" style="border-left-color: var(--red);">
+                    <h3 style="color: var(--red);">Risks</h3>
+                    <ul>
+                        <li>Impulse purchases</li>
+                        <li>Risk of counterfeit products</li>
+                        <li>Limited-time discounts create pressure</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Pinduoduo Model</h3>
+                    <p><strong>Team Buying:</strong> Prices drop when you share offers with friends/family. This social revolution successfully captured rural markets and less affluent populations, turning shopping into a viral game.</p>
+                </div>
+            </div>
+
+            <!-- Live Commerce Growth Chart -->
+            <div class="chart-container">
+                <h3 style="text-align: center; margin-bottom: 20px;">Live Commerce Market Growth in China (Billions USD)</h3>
+                <div class="bar-chart">
+                    <div class="bar-item">
+                        <span class="bar-label">2019</span>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width: 10%;">$66B</div>
+                        </div>
+                    </div>
+                    <div class="bar-item">
+                        <span class="bar-label">2020</span>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width: 25%;">$171B</div>
+                        </div>
+                    </div>
+                    <div class="bar-item">
+                        <span class="bar-label">2021</span>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width: 50%;">$327B</div>
+                        </div>
+                    </div>
+                    <div class="bar-item">
+                        <span class="bar-label">2022</span>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width: 75%;">$480B</div>
+                        </div>
+                    </div>
+                    <div class="bar-item">
+                        <span class="bar-label">2024</span>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width: 100%;">$650B+</div>
+                        </div>
+                    </div>
+                </div>
+                <p class="source-tag">Source: iResearch China Live Streaming E-commerce Report 2024, Deloitte China</p>
+            </div>
+
+            <p class="transition-quote">
+                "Next, Lina Amahzoune will present the social impacts and ethical challenges of this digital commerce."
+            </p>
+        </div>
+    </section>
+
+    <!-- 8. SOCIAL IMPACTS (LINA AMAHZOUNE) -->
+    <section id="impacts">
+        <div class="content-layer">
+            <span class="label"><span class="speaker-tag">Lina Amahzoune</span> | Social & Ethical Analysis</span>
+            <h2>Impacts, Data & Employment</h2>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>Personal Data</h3>
+                    <p>Platforms collect massive information: habits, preferences, location to propose adapted products.</p>
+                    <p><strong style="color: var(--green);">Advantages:</strong> Personalized recommendations, time savings</p>
+                    <p><strong style="color: var(--red);">Risks:</strong> Loss of privacy, surveillance, abusive data use</p>
+                    <p style="font-style: italic; color: var(--gold); margin-top: 15px;">"The Convenience Paradox"</p>
+                </div>
+                <div class="card">
+                    <h3>Employment Transformation</h3>
+                    <p><strong style="color: var(--green);">New jobs created:</strong> Delivery riders, influencers, customer service employees</p>
+                    <p><strong style="color: var(--red);">But also:</strong> Precarious conditions, difficult working conditions (riders facing algorithmic pressure), disappearance of traditional retail jobs</p>
+                </div>
+                <div class="card">
+                    <h3>Digital Dependency</h3>
+                    <ul>
+                        <li>Impulse buying behavior</li>
+                        <li>Strong algorithmic influence</li>
+                        <li>High screen time and online addiction</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Data Privacy Chart -->
+            <div class="chart-container">
+                <h3 style="text-align: center; margin-bottom: 20px;">Chinese Consumer Attitudes Toward Data Privacy (2024)</h3>
+                <div class="bar-chart">
+                    <div class="bar-item">
+                        <span class="bar-label">Accept data collection for convenience</span>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width: 68%;">68%</div>
+                        </div>
+                    </div>
+                    <div class="bar-item">
+                        <span class="bar-label">Concerned about personal data security</span>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width: 74%;">74%</div>
+                        </div>
+                    </div>
+                    <div class="bar-item">
+                        <span class="bar-label">Trust e-commerce platforms</span>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width: 52%;">52%</div>
+                        </div>
+                    </div>
+                </div>
+                <p class="source-tag">Source: China Internet Network Information Center (CNNIC) Statistical Report 2024, McKinsey China Consumer Survey</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. STRATEGIC CHOICE (WIAM ARBOUCH) -->
+    <section id="why-china">
+        <div class="content-layer">
+            <span class="label"><span class="speaker-tag">Wiam Arbouch</span> | Strategic Rationale</span>
+            <h2>Why China?</h2>
+            
+            <div class="grid">
+                <div>
+                    <p>After presenting the various evolutions of digital commerce in China, it is important to explain the reasons for our choice of this topic.</p>
+                    
+                    <p>We chose China because it is today one of the <strong>world leaders in e-commerce</strong>.</p>
+                    
+                    <p>This country has undergone a rapid transformation, moving from traditional commerce to a very advanced digital system based on mobile technologies, social networks, and fast delivery.</p>
+                    
+                    <p>China is also a <strong>unique example of constant innovation</strong>, with solutions like social commerce, live streaming, and super-apps that profoundly change consumer habits.</p>
+                    
+                    <p>Studying this country allows us to understand how digital transforms the economy, society, and lifestyles, while giving a glimpse of the <strong>future of global commerce</strong>.</p>
+                </div>
+                <div class="card">
+                    <h3>Key Takeaways</h3>
+                    <ul>
+                        <li>Uncontested global leader</li>
+                        <li>Unique rapid transformation</li>
+                        <li>Constant innovation model</li>
+                        <li>Blueprint for future commerce</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Global E-commerce Comparison -->
+            <div class="chart-container">
+                <h3 style="text-align: center; margin-bottom: 20px;">Global E-commerce Penetration Rate by Country (2024)</h3>
+                <div class="bar-chart">
+                    <div class="bar-item">
+                        <span class="bar-label">China</span>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width: 100%;">52%</div>
+                        </div>
+                    </div>
+                    <div class="bar-item">
+                        <span class="bar-label">South Korea</span>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width: 55%;">28%</div>
+                        </div>
+                    </div>
+                    <div class="bar-item">
+                        <span class="bar-label">UK</span>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width: 50%;">26%</div>
+                        </div>
+                    </div>
+                    <div class="bar-item">
+                        <span class="bar-label">USA</span>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width: 35%;">19%</div>
+                        </div>
+                    </div>
+                    <div class="bar-item">
+                        <span class="bar-label">Global Average</span>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width: 38%; background: rgba(255,255,255,0.3); color: var(--ivory);">21%</div>
+                        </div>
+                    </div>
+                </div>
+                <p class="source-tag">Source: eMarketer Worldwide Ecommerce Forecast 2024, Statista Global Consumer Survey</p>
+            </div>
+
+            <p class="transition-quote">
+                "Finally, Wiam Jlida will project us 50 years into the future to see how commerce might evolve."
+            </p>
+        </div>
+    </section>
+
+    <!-- 10. FUTURE 2075 (WIAM JLIDA) -->
+    <section id="future">
+        <div class="content-layer">
+            <span class="label"><span class="speaker-tag">Wiam Jlida</span> | Future Horizon</span>
+            <h2>Neural Commerce 2075</h2>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>Zero-Tap Consumption</h3>
+                    <p><strong>Beyond the "Click":</strong> AI-driven fulfillment based on neural and biometric data.</p>
+                    <p><strong>Anticipatory Needs:</strong> Products arrive before the consumer even realizes the need.</p>
+                    <p><strong>Passive Utility:</strong> Shopping becomes a background service, like water or electricity.</p>
+                </div>
+                <div class="card">
+                    <h3>The Death of Distance</h3>
+                    <p><strong>Molecular Manufacturing:</strong> 3D "in-home" printing of goods via digital licenses.</p>
+                    <p><strong>Underground Logistics:</strong> Hyper-loop vacuum tubes replacing traditional delivery trucks.</p>
+                    <p><strong>Instant Gratification:</strong> The gap between "desire" and "possession" drops to zero.</p>
+                </div>
+                <div class="card">
+                    <h3>The "Phygital" Metaverse</h3>
+                    <p><strong>Haptic Shopping:</strong> VR boutiques where users can "feel" textures and weight.</p>
+                    <p><strong>Digital Twins:</strong> Ultra-precise avatars for perfect virtual fittings and trials.</p>
+                    <p><strong>Social Credit 2.0:</strong> Consumption habits integrated into real-time social/carbon scoring.</p>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 40px; border: 2px solid var(--red);">
+                <h3 style="color: var(--red);">The Grand Paradox: Efficiency vs Agency</h3>
+                <div class="grid">
+                    <div>
+                        <p><strong>The Loss of Discovery:</strong> Does total prediction kill the joy of the "find"?</p>
+                        <p><strong>The Privacy Trade-off:</strong> Convenience in exchange for 24/7 biometric surveillance.</p>
+                        <p><strong>Free Will:</strong> In a world of perfect algorithms, do we still choose our own desires?</p>
+                    </div>
+                    <div style="text-align: center; display: flex; align-items: center; justify-content: center;">
+                        <span style="font-size: 6rem; color: var(--gold); font-family: 'Bodoni Moda', serif;">?</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. CONCLUSION (WIJDANE OUTARJA) -->
+    <section id="conclusion">
+        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=2000" class="bg-overlay">
+        <div class="content-layer">
+            <span class="label"><span class="speaker-tag">Wijdane Outarja</span> | Final Synthesis</span>
+            <h2>Conclusion</h2>
+            
+            <p style="font-size: 1.4rem; border-left: 2px solid var(--gold); padding-left: 30px;">
+                "Commerce is no longer an action we take; it is a current that flows around us. China has shown that when you remove all friction, digital trade becomes as essential as air."
+            </p>
+
+            <div class="grid" style="margin-top: 50px;">
+                <div>
+                    <h3>The Borderless Ecosystem</h3>
+                    <p>China's e-commerce model is the global blueprint for "New Retail." By merging social life, entertainment, and logistics into a single digital layer, they have created a high-frequency ecosystem that rewards innovation but demands agility.</p>
+                    <p>The next frontier lies in "Cross-border" expansion (Temu, Shein) and AI-driven hyper-personalization.</p>
+                </div>
+                <div class="card">
+                    <h3>From Tradition to Neural</h3>
+                    <p style="font-size: 0.9rem; text-align: center; line-height: 2;">
+                        Local Markets → Super-Apps → Social Commerce → Neural Commerce
+                    </p>
+                    <p style="font-size: 0.9rem; margin-top: 15px; text-align: center;">A 50-year journey from cash to predictive AI.</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 60px;">
+                <p class="label" style="margin-bottom: 30px;">Thank You | Open Discussion & Feedback</p>
+                <div class="author-list" style="justify-content: center; opacity: 1;">
+                    <span>DOUAE ATTOUCH</span> <span>YASMINE SENHAJI</span> <span>LILIA JALOUN</span> <span>NOURA SOUMAHORO</span> 
+                    <span>JANNAT EL MELZOUM</span> <span>LINA AMAHZOUNE</span> <span>WIAM ARBOUCH</span> <span>WIAM JLIDA</span> <span>WIJDANE OUTARJA</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
